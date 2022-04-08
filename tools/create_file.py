@@ -2,6 +2,7 @@ from sys import argv
 from os import makedirs
 from subprocess import Popen
 from datetime import date
+from time import sleep
 
 
 def input_info():
@@ -13,7 +14,6 @@ def input_info():
     info.append(int(input()))
     print("How many files to create ? => ", end="")
     info.append(int(input()))
-    print(info)
     if info[-1] == 1:
         print("What problem ? => ", end="")
         info.append(input())
@@ -27,7 +27,7 @@ def main():
     if not cli:
         cli = input_info()
 
-    name = cli[0]
+    name = cli[0].lower()
     times = int(cli[1])
     files = int(cli[2])
     if files == 1:
@@ -35,28 +35,29 @@ def main():
     else:
         problem = 65
 
-    if name == "ABC":
-        dir1 = (times // 50 + (times % 50 != 0)) * 50
-        dir2 = (times // 10 + (times % 10 != 0)) * 10
+    if name == "abc" or name == "arc":
+        dir1 = f"/{(times + 50 - 1) // 50 * 50}"
+        dir2 = f"/{(times + 10 - 1) // 10 * 10}"
     elif name == "meetup":
         today = date.today().strftime("%y%m%d")
-        dir1 = name
-        dir2 = today
+        dir1 = "/" + today
+        dir2 = ""
     else:
         print("error!")
         return
 
     # フォルダを作る
-    file_path = f"./{dir1}/{dir2}/"
+    file_path = f"./{name}{dir1}{dir2}"
     makedirs(file_path, exist_ok=True)
 
     for _ in [0] * files:
         problem = chr(problem)
         # raw文字列にしておく
-        full_path = rf"{file_path}{times}{problem}.py"
+        full_path = rf"{file_path}/{times}{problem}.py"
         # ファイルを作って開く
         with open(full_path, "x"):
             Popen(["start", full_path], shell=True)
+        sleep(1 // 2)
         problem = ord(problem) + 1
 
 
