@@ -38,7 +38,7 @@ def main():
     if name == "ABC":
         dir1 = (times // 50 + (times % 50 != 0)) * 50
         dir2 = (times // 10 + (times % 10 != 0)) * 10
-    elif name == "もくもく":
+    elif name == "meetup":
         today = date.today().strftime("%y%m%d")
         dir1 = name
         dir2 = today
