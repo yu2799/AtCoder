@@ -18,12 +18,12 @@ def is_prime(n):
 def main():
     input = stdin.readline
     x = int(input())
-    while True:
-        if is_prime(x):
-            print(x)
-            exit()
+    if x != 2 and x % 2 == 0:
         x += 1
+    while not is_prime(x):
+        x += 2
+    print(x)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
