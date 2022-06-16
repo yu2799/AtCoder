@@ -3,18 +3,14 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    l, r = map(int, input().split())
-    if r - l >= 2019:
-        print(0)
-        return
-    res = 2020
-    for i in range(l, r + 1):
-        for j in range(i + 1, r + 1):
-            if i * j % 2019 < res:
-                res = i * j % 2019
-                if res == 0:
-                    print(0)
-                    return
+    left, right = map(int, input().split())
+    right = min(left + 2019, right) + 1
+    res = float("inf")
+    for i in range(left, right):
+        for j in range(i + 1, right):
+            tmp = (i % 2019) * (j % 2019) % 2019
+            if tmp < res:
+                res = tmp
     print(res)
 
 
