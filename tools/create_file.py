@@ -55,7 +55,7 @@ def main():
         # raw文字列にしておく
         full_path = rf"{file_path}/{times}{problem}.py"
         # ファイルを作って開く
-        with open(full_path, "x"):
+        with open(full_path, "a"):
             Popen(["start", full_path], shell=True)
         sleep(1 // 2)
         problem = ord(problem) + 1
