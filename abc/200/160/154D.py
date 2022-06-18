@@ -4,14 +4,15 @@ from collections import deque
 
 def main():
     input = stdin.readline
-    n, k = map(int, input().split())
-    p = [i for i in map(int, input().split())]
+    _, k = map(int, input().split())
+    p = list(map(int, input().split()))
     q = deque()
     res = 0
     for i in p[:k]:
         q.append(i)
         res += i
     tmp = res
+
     for i in p[k:]:
         tmp -= q.popleft()
         q.append(i)
