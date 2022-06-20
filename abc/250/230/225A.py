@@ -1,10 +1,11 @@
 from sys import stdin
+from itertools import permutations
 
 
 def main():
     input = stdin.readline
-    a = map(int, input().split())
-    print("win" if sum(a) <= 21 else "bust")
+    s = input()[:-1]
+    print(len(set(permutations(s))))
 
 
 if __name__ == "__main__":
