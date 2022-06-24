@@ -1,13 +1,19 @@
-n = int(input())
-a = [int(i) for i in input().split()]
-cnt = 1
-d = 0
-for i in a:
-    if i == cnt:
-        cnt += 1
-    else:
-        d += 1
-if d == len(a):
-    print(-1)
-else:
-    print(d)
+from sys import stdin
+
+
+def main():
+    input = stdin.readline
+    n = int(input())
+    a = list(map(int, input().split()))
+    res = 0
+    cnt = 1
+    for i in a:
+        if i != cnt:
+            res += 1
+        else:
+            cnt += 1
+    print(-1 if res == n else res)
+
+
+if __name__ == "__main__":
+    main()

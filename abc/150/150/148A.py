@@ -1,3 +1,12 @@
-a = int(input())
-b = int(input())
-print(6 - (a + b))
+from sys import stdin
+
+
+def main():
+    input = stdin.readline
+    a = int(input())
+    b = int(input())
+    print(6 - a - b)
+
+
+if __name__ == "__main__":
+    main()
