@@ -4,12 +4,13 @@ from sys import stdin
 def main():
     input = stdin.readline
     a, b = map(int, input().split())
-    if a == 0:
-        print("Silver")
-    elif b == 0:
+    if 0 < a and b == 0:
         print("Gold")
+    elif a == 0 and 0 < b:
+        print("Silver")
     else:
         print("Alloy")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

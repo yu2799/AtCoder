@@ -5,17 +5,17 @@ from heapq import heappop, heappush
 def main():
     input = stdin.readline
     q = int(input())
-    tmp = 0
-    h = []
+    hq = []
     res = []
+    cnt = 0
     for _ in [0] * q:
-        query = tuple(map(int, input().split()))
+        (*query,) = map(int, input().split())
         if query[0] == 1:
-            heappush(h, query[1] - tmp)
+            heappush(hq, query[1] - cnt)
         elif query[0] == 2:
-            tmp += query[1]
+            cnt += query[1]
         else:
-            res.append(heappop(h) + tmp)
+            res.append(heappop(hq) + cnt)
     print(*res, sep="\n")
 
 

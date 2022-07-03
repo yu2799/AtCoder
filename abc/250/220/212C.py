@@ -8,18 +8,18 @@ def main():
     a = list(map(int, input().split()))
     b = list(map(int, input().split()))
     b.sort()
-    res = 10 ** 9
+    res = 10**9
     for i in a:
         idx = bisect_right(b, i)
         if idx == 0:
-            res = min(abs(b[idx] - i), res)
+            diff = b[idx] - i
         elif idx == m:
-            res = min(abs(b[idx - 1] - i), res)
+            diff = i - b[idx - 1]
         else:
-            res = min(min(abs(b[idx] - i), abs(b[idx - 1] - i)), res)
-
-    else:
-        print(res)
+            diff = min(i - b[idx - 1], b[idx] - i)
+        if diff < res:
+            res = diff
+    print(res)
 
 
 if __name__ == "__main__":
