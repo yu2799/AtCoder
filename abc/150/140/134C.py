@@ -1,10 +1,14 @@
-n = int(input())
-a = [int(input()) for _ in range(n)]
-b = sorted(a)
-first = b[-1]
-second = b[-2]
-for i in a:
-    if i == first:
-        print(second)
-    else:
-        print(first)
+from sys import stdin
+
+
+def main():
+    input = stdin.readline
+    n = int(input())
+    a = [int(input()) for _ in [0] * n]
+    first, second = sorted(a, reverse=True)[:2]
+    res = [second if i == first else first for i in a]
+    print(*res, sep="\n")
+
+
+if __name__ == "__main__":
+    main()

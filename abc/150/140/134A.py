@@ -1,2 +1,11 @@
-r = int(input())
-print(3*r**2)
+from sys import stdin
+
+
+def main():
+    input = stdin.readline
+    r = int(input())
+    print(3 * r**2)
+
+
+if __name__ == "__main__":
+    main()
