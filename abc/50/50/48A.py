@@ -3,8 +3,8 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    a, b, x = map(int, input().split())
-    print(b // x - (a - 1) // x)
+    s = input().split()[1]
+    print(f"A{s[0]}C")
 
 
 if __name__ == "__main__":

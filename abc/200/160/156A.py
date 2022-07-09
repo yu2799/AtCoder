@@ -3,8 +3,8 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    a, b, x = map(int, input().split())
-    print(b // x - (a - 1) // x)
+    n, r = map(int, input().split())
+    print(r if n >= 10 else r + 100 * (10 - n))
 
 
 if __name__ == "__main__":

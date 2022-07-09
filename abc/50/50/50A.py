@@ -3,8 +3,8 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    a, b, x = map(int, input().split())
-    print(b // x - (a - 1) // x)
+    a, op, b = input().split()
+    print(int(a) + int(b) if op == "+" else int(a) - int(b))
 
 
 if __name__ == "__main__":
