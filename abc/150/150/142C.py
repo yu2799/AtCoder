@@ -3,11 +3,9 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    n = int(input())
-    a = [int(i) for i in input().split()]
-    res = [0] * n
-    for i, data in enumerate(a):
-        res[data - 1] = i + 1
+    _ = int(input())
+    a = {i: idx for idx, i in enumerate(map(int, input().split()))}
+    res = [a[i] + 1 for i in sorted(a.keys())]
     print(*res)
 
 

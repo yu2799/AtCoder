@@ -3,8 +3,8 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    n = int(input())
-    print(((n + 1) // 2) / n)
+    a, b = map(int, input().split())
+    print((a + b) % 24)
 
 
 if __name__ == "__main__":
