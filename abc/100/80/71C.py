@@ -4,20 +4,27 @@ from collections import defaultdict
 
 def main():
     input = stdin.readline
-    n = int(input())
+    _ = int(input())
     a = list(map(int, input().split()))
     d = defaultdict(int)
-    tmp = []
     for i in a:
         d[i] += 1
-        if d[i] % 2 == 0:
-            tmp.append(i)
-    if tmp:
-        tmp.sort(reverse=True)
-        print(tmp[0] * tmp[1])
-    else:
-        print(0)
+
+    cnt = 0
+    for i in sorted(d.keys(), reverse=True):
+        if d[i] >= 2:
+            if cnt == 0:
+                if d[i] >= 4:
+                    print(i * i)
+                    return
+                else:
+                    cnt += 1
+                    res = i
+            else:
+                print(res * i)
+                return
+    print(0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
