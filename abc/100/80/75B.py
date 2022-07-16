@@ -1,20 +1,38 @@
-h, w = map(int, input().split())
-grid = ["." * (w + 2)] + ["." + input() +
-                          "." for _ in [0] * h] + ["." * (w + 2)]
-res = [[0 for _ in [0] * w] for _ in [0] * h]
-dx = [1, 0, -1, 0, 1, -1, -1, 1]
-dy = [0, 1, 0, -1, 1, 1, -1, -1]
+from sys import stdin
 
-for i in range(1, h+1):
-    for j in range(1, w+1):
-        cnt = 0
-        if grid[i][j] == ".":
-            for x, y in zip(dx, dy):
-                if grid[i+y][j+x] == "#":
-                    cnt += 1
-            res[i-1][j-1] = str(cnt)
-        else:
-            res[i-1][j-1] = "#"
 
-for i in range(h):
-    print(*res[i], sep="")
+def main():
+    input = stdin.readline
+    h, w = map(int, input().split())
+    s = (
+        [list("." * (w + 2))]
+        + [list("." + input()[:-1] + ".") for _ in [0] * h]
+        + [list("." * (w + 2))]
+    )
+    dir = [
+        (1, 0),
+        (1, 1),
+        (0, 1),
+        (-1, 1),
+        (-1, 0),
+        (-1, -1),
+        (0, -1),
+        (1, -1),
+    ]
+    res = [[] for _ in [0] * h]
+    for i in range(1, h + 1):
+        for j in range(1, w + 1):
+            if s[i][j] == ".":
+                tmp = 0
+                for x, y in dir:
+                    if s[i + y][j + x] == "#":
+                        tmp = tmp + 1
+                res[i - 1].append(tmp)
+            else:
+                res[i - 1].append("#")
+    for i in res:
+        print(*i, sep="")
+
+
+if __name__ == "__main__":
+    main()

@@ -3,18 +3,17 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    n, m = map(int, input().split())
+    _, m = map(int, input().split())
     a = list(map(int, input().split()))
-    l = sum(a)
+    a.sort(reverse=True)
+    sum_a = sum(a)
     cnt = 0
     for i in a:
-        if i * m * 4 >= l:
-            cnt += 1
-        if cnt == m:
-            print("Yes")
-            return
-    else:
-        print("No")
+        if i * m * 4 >= sum_a:
+            cnt = cnt + 1
+        else:
+            break
+    print("Yes" if cnt >= m else "No")
 
 
 if __name__ == "__main__":

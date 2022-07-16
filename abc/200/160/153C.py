@@ -3,8 +3,8 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    n, k = map(int, input().split())
-    h = [int(i) for i in input().split()]
+    _, k = map(int, input().split())
+    h = list(map(int, input().split()))
     h.sort(reverse=True)
     print(sum(h[k:]))
 
