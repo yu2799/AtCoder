@@ -3,8 +3,9 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    s = input()[:-1]
-    print(s.count("1"))
+    n = input()[:-1]
+    sum_n = sum([int(i) for i in n])
+    print("Yes" if int(n) % sum_n == 0 else "No")
 
 
 if __name__ == "__main__":
