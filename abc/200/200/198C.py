@@ -1,7 +1,18 @@
-import math
-r, x, y = map(int, input().split())
-dist = math.sqrt(pow(x, 2) + pow(y, 2))
-if dist < r:
-    print(2)
-else:
-    print(math.ceil(dist/r))
+from sys import stdin
+from math import sqrt, ceil
+
+
+def main():
+    input = stdin.readline
+    r, x, y = map(int, input().split())
+    d = sqrt(x * x + y * y)
+    if d == r:
+        print(1)
+    elif d <= r + r:
+        print(2)
+    else:
+        print(ceil(d / r))
+
+
+if __name__ == "__main__":
+    main()
