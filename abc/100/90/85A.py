@@ -3,9 +3,8 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    n = int(input())
-    d = [int(input()) for _ in [0] * n]
-    print(len(set(d)))
+    s = input()[:-1]
+    print(f"2018{s[4:]}")
 
 
 if __name__ == "__main__":

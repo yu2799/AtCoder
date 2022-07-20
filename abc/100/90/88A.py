@@ -4,8 +4,8 @@ from sys import stdin
 def main():
     input = stdin.readline
     n = int(input())
-    d = [int(input()) for _ in [0] * n]
-    print(len(set(d)))
+    a = int(input())
+    print("Yes" if n % 500 <= a else "No")
 
 
 if __name__ == "__main__":

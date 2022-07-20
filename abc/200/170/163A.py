@@ -1,11 +1,11 @@
 from sys import stdin
+from math import pi
 
 
 def main():
     input = stdin.readline
-    n = int(input())
-    d = [int(input()) for _ in [0] * n]
-    print(len(set(d)))
+    r = int(input())
+    print(2 * r * pi)
 
 
 if __name__ == "__main__":

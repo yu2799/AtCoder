@@ -3,12 +3,10 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    n = int(input())
+    n, _ = map(int, input().split())
     a = list(map(int, input().split()))
-    res = [0] * n
-    for i in a:
-        res[i - 1] += 1
-    print(*res, sep="\n")
+    tmp = sum(a)
+    print(n - tmp if n - tmp >= 0 else -1)
 
 
 if __name__ == "__main__":

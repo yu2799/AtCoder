@@ -1,3 +1,13 @@
-n = int(input())
-a = sorted(list(map(int, input().split())), reverse=True)
-print(sum([i for i in a[::2]]) - sum([i for i in a[1::2]]))
+from sys import stdin
+
+
+def main():
+    input = stdin.readline
+    _ = int(input())
+    a = list(map(int, input().split()))
+    a.sort(reverse=True)
+    print(sum(a[::2]) - sum(a[1::2]))
+
+
+if __name__ == "__main__":
+    main()
