@@ -3,14 +3,11 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    n, m = sorted(map(int, input().split()))
-    if n == 1:
-        if m == 1:
-            print(1)
-        else:
-            print(m - 2)
-    elif n == 2:
-        print(0)
+    n, m = map(int, input().split())
+    if n == 1 and m == 1:
+        print(1)
+    elif n == 1 or m == 1:
+        print(max(n, m) - 2)
     else:
         print(n * m - 2 * (n + m) + 4)
 
