@@ -3,8 +3,8 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    r = int(input())
-    print(r * r)
+    L = int(input())
+    print(L * L * L / 27)
 
 
 if __name__ == "__main__":

@@ -3,9 +3,13 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    n = int(input())
+    k = int(input())
     s = input()[:-1]
-    print("Yes" if s[: n // 2] == s[n // 2 :] else "No")
+    s_len = len(s)
+    if s_len <= k:
+        print(s)
+    else:
+        print(s[:k] + "...")
 
 
 if __name__ == "__main__":

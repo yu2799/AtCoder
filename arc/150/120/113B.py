@@ -3,8 +3,8 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    r = int(input())
-    print(r * r)
+    a, b, c = map(int, input().split())
+    print(pow(a, pow(b, c, 4) + 4, 10))
 
 
 if __name__ == "__main__":

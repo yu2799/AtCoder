@@ -1,6 +1,18 @@
-from math import pi, cos, sqrt
+from math import cos, pi, sqrt
+from sys import stdin
 
-a, b, h, m = map(int, input().split())
-s = (h + m / 60) / 6 * pi
-l = m / 30 * pi
-print(sqrt(a*a + b*b - 2*a*b*cos(abs(l-s))))
+
+def main():
+    input = stdin.readline
+    a, b, h, m = map(int, input().split())
+    print(
+        sqrt(
+            a * a
+            + b * b
+            - 2 * a * b * cos((h + m / 60) / 6 * pi - m / 30 * pi)
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()
