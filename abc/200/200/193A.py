@@ -4,8 +4,8 @@ from sys import stdin
 def main():
     input = stdin.readline
     a, b = map(int, input().split())
-    print((1 - b / a) * 100)
+    print(100 * (1 - b / a))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
