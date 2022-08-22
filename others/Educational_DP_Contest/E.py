@@ -3,26 +3,23 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    N, W = map(int, input().split())
-    w = []
-    v = []
-    for _ in [0] * N:
-        a, b = map(int, input().split())
-        w.append(a)
-        v.append(b)
-    INF = 10 ** 15
-    maxV = sum(v) + 1
-    dp = [[INF] * maxV for _ in [0] * (N + 1)]
+    n, w = map(int, input().split())
+    wv = [tuple(map(int, input().split())) for _ in [0] * n]
+    MAX_VALUE = sum([i[1] for i in wv]) + 1
+    INF = 10**15
+    dp = [[INF] * MAX_VALUE for _ in [0] * (n + 1)]
     dp[0][0] = 0
-    for i in range(N):
-        for j in range(maxV):
-            if j >= v[i]:
-                dp[i + 1][j] = min(dp[i][j - v[i]] + w[i], dp[i][j])
-            else:
-                dp[i + 1][j] = min(dp[i + 1][j], dp[i][j])
+    for i in range(n):
+        weight, value = wv[i]
+        for j in range(MAX_VALUE):
+            if j + value < MAX_VALUE:
+                dp[i + 1][j + value] = min(
+                    dp[i][j] + weight, dp[i + 1][j + value]
+                )
+            dp[i + 1][j] = min(dp[i + 1][j], dp[i][j])
     res = 0
-    for i in range(maxV):
-        if dp[N][i] <= W:
+    for i in range(MAX_VALUE):
+        if dp[n][i] <= w:
             res = i
     print(res)
 
