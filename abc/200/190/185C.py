@@ -1,13 +1,11 @@
+from math import factorial
 from sys import stdin
 
 
 def main():
     input = stdin.readline
-    l = int(input())
-    res = 1
-    for i in range(11):
-        res = res * (l - i - 1) // (i + 1)
-    print(res)
+    L = int(input())
+    print(factorial(L - 1) // factorial(11) // factorial(L - 12))
 
 
 if __name__ == "__main__":
