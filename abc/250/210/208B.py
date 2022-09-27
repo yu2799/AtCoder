@@ -1,5 +1,5 @@
-from sys import stdin
 from math import factorial
+from sys import stdin
 
 
 def main():
