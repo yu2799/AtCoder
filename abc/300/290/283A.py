@@ -1,0 +1,12 @@
+from sys import stdin
+
+
+def main():
+    input = stdin.readline
+
+    a, b = map(int, input().split())
+    print(pow(a, b))
+
+
+if __name__ == "__main__":
+    main()
