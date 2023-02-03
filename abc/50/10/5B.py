@@ -4,10 +4,11 @@ from sys import stdin
 def main():
     input = stdin.readline
     n = int(input())
-    res = 1
-    MOD = 10**9 + 7
-    for i in range(1, n + 1):
-        res = res * i % MOD
+    res = 100
+    for _ in range(n):
+        t = int(input())
+        if res > t:
+            res = t
     print(res)
 
 
