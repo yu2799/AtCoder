@@ -3,14 +3,14 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    _ = int(input())
+    n = int(input())
     p = list(map(int, input().split()))
+    tmp = n + 1
     res = 0
-    tmp = float("inf")
     for i in p:
-        if tmp > i:
-            tmp = i
+        if i < tmp:
             res += 1
+            tmp = i
     print(res)
 
 

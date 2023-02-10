@@ -3,11 +3,13 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    n = int(input())
-    a = list(set(map(int, input().split())))
-    a.sort()
+    _ = int(input())
+    res = [False] * 2001
+    a = list(map(int, input().split()))
+    for i in a:
+        res[i] = True
     for i in range(2001):
-        if not i in a:
+        if not res[i]:
             print(i)
             return
 

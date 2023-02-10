@@ -3,7 +3,7 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    n, m = map(int, input().split())
+    _ = map(int, input().split())
     a = list(map(int, input().split()))
     c = list(map(int, input().split()))
     a.reverse()
