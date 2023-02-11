@@ -1,0 +1,353 @@
+{
+	"map": {
+		"prefix": "map",
+		"body": "map(int, input().split())",
+		"description": "map"
+	},
+	"print_yes_no": {
+		"prefix": "print(\"Yes\" if $1 else \"No\")",
+		"body": "print(\"Yes\" if $1 else \"No\")",
+		"description": "print"
+	},
+	"print(*res, sep=\"\\n\")": {
+		"prefix": "print(*res, sep=\"\\n\")",
+		"body": "print(*res, sep=\"\\n\")",
+		"description": "print"
+	},
+	"n = int(input())": {
+		"prefix": "n = int(input())",
+		"body": "n = int(input())",
+		"description": "n = int(input())"
+	},
+	"graph": {
+		"prefix": "graph",
+		"body": "graph = [[] for _ in range($1)]",
+		"description": "graph"
+	},
+	"s = input()[:-1]": {
+		"prefix": "s = input()[:-1]",
+		"body": [
+			"s = input()[:-1]"
+		],
+		"description": "文字列入力"
+	},
+	"INF = float(\"inf\")": {
+		"prefix": "INF = float(\"inf\")",
+		"body": [
+			"INF = float(\"inf\")"
+		],
+		"description": "最大値"
+	},
+	"lcm(x, y)": {
+		"prefix": "lcm(x, y)",
+		"body": [
+			"from math import gcd",
+			"",
+			"",
+			"def lcm(x, y):",
+			"\treturn x // gcd(x, y) * y",
+			""
+		],
+		"description": "文字列入力"
+	},
+	"list": {
+		"prefix": "list",
+		"body": [
+			"list(map(int, input().split()))"
+		]
+	},
+	"int(input())": {
+		"prefix": "int(input())",
+		"body": [
+			"int(input())"
+		],
+		"description": "int(input())"
+	},
+	"int(i) for i in input().split()": {
+		"prefix": "int(i)",
+		"body": [
+			"int(i) for i in input().split()"
+		],
+		"description": "int(i) for i in input().split()"
+	},
+	"atcoder": {
+		"prefix": "atcoder",
+		"body": [
+			"from sys import stdin",
+			"",
+			"",
+			"def main():",
+			"\tinput = stdin.readline",
+			"\t$0",
+			"",
+			"",
+			"if __name__ == \"__main__\":",
+			"\tmain()",
+			""
+		]
+	},
+	"meguru_bisect": {
+		"prefix": "meguru_bisect",
+		"body": [
+			"def meguru_bisect(ng, ok):",
+			"\twhile abs(ok - ng) > 1:",
+			"\t\tmid = (ok + ng) // 2",
+			"\t\tif True:",
+			"\t\t\tok = mid",
+			"\t\telse:",
+			"\t\t\tng = mid",
+			"\treturn ok",
+			""
+		],
+		"description": "めぐる式二分探索"
+	},
+	"prime_factorization": {
+		"prefix": "prime_factorization",
+		"body": [
+			"def prime_factorization(n):",
+			"\tprime_list = []",
+			"\twhile n % 2 == 0:",
+			"\t\tprime_list.append(2)",
+			"\t\tn //= 2",
+			"\tf = 3",
+			"\twhile f * f <= n:",
+			"\t\tif n % f == 0:",
+			"\t\t\tprime_list.append(f)",
+			"\t\t\tn //= f",
+			"\t\telse:",
+			"\t\t\tf += 2",
+			"\tif n != 1:",
+			"\t\tprime_list.append(n)",
+			"\treturn prime_list"
+		],
+		"description": "素因数分解"
+	},
+	"enumerate_divisors": {
+		"prefix": "enumerate_divisors",
+		"body": [
+			"def enumerate_divisors(n):",
+			"\tdivisors = []",
+			"\tfor i in range(1, int(n**0.5) + 1):",
+			"\t\tif n % i == 0:",
+			"\t\t\tdivisors.append(i)",
+			"\t\t\tif i != n // i:",
+			"\t\t\t\tdivisors.append(n // i)",
+			"\tdivisors.sort()",
+			"\treturn divisors",
+			""
+		]
+	},
+	"is_prime": {
+		"prefix": "is_prime",
+		"body": [
+			"def is_prime(n):",
+			"\tif n == 2:",
+			"\t\treturn True",
+			"\telif n % 2 == 0 or n == 1:",
+			"\t\treturn False",
+			"\telse:",
+			"\t\tl = int(pow(n, 0.5)) + 1",
+			"\t\tfor i in range(3, l, 2):",
+			"\t\t\tif n % i == 0:",
+			"\t\t\t\treturn False",
+			"\t\telse:",
+			"\t\t\treturn True"
+		]
+	},
+	"dfs": {
+		"prefix": "dfs",
+		"body": [
+			"from collections import deque",
+			"",
+			"",
+			"def dfs(graph):",
+			"\tres = []",
+			"\tvisited = set()",
+			"\tnext_visit = deque([1])",
+			"\twhile next_visit:",
+			"\t\tcur = next_visit.pop()",
+			"\t\tif cur not in visited:",
+			"\t\t\t# 行きがけ",
+			"\t\t\tnext_visit.append(cur)",
+			"\t\t\tvisited.add(cur)",
+			"\t\t\tfor i in graph[cur]:",
+			"\t\t\t\tnext_visit.append(i)",
+			"\t\telse:",
+			"\t\t\t# 帰りがけ",
+			"\t\t\tpass",
+			"",
+			"\treturn res"
+		]
+	},
+	"bfs": {
+		"prefix": "bfs",
+		"body": [
+			"from collections import deque",
+			"",
+			"",
+			"def bfs(graph, n, start):",
+			"\tdist = [-1] * n",
+			"\tdist[start] = 0",
+			"\tnext_visit = deque([start])",
+			"\twhile next_visit:",
+			"\t\tcur = next_visit.popleft()",
+			"\t\tfor i in graph[cur]:",
+			"\t\t\tif dist[i] > -1:",
+			"\t\t\t\tcontinue",
+			"\t\t\tdist[i] = dist[cur] + 1",
+			"\t\t\tnext_visit.append(i)",
+			"",
+			"\treturn dist"
+		]
+	},
+	"grid_bfs": {
+		"prefix": "grid_bfs",
+		"body": [
+			"from collections import deque",
+			"",
+			"",
+			"def grid_bfs(grid, w, h, x, y):",
+			"\tdist = [[-1] * w for _ in [0] * h]",
+			"\tdist[y][x] = 0",
+			"\tdir = [(1, 0), (0, 1), (-1, 0), (0, -1)]",
+			"\tnext_visit = deque([(x, y)])",
+			"\twhile next_visit:",
+			"\t\tcur_x, cur_y = next_visit.popleft()",
+			"\t\tfor dir_x, dir_y in dir:",
+			"\t\t\tnext_x, next_y = cur_x + dir_x, cur_y + dir_y",
+			"\t\t\tif grid[next_y][next_x] == \"#\" or dist[next_y][next_x] > -1:",
+			"\t\t\t\tcontinue",
+			"\t\t\tdist[next_y][next_x] = dist[cur_y][cur_x] + 1",
+			"\t\t\tnext_visit.append((next_x, next_y))",
+			"",
+			"\treturn dist"
+		]
+	},
+	"grid": {
+		"prefix": "grid",
+		"body": [
+			"grid = (",
+			"\t[list(\"#\" * (w + 2))]",
+			"\t+ [list(\"#\") + list(input()[:-1]) + list(\"#\") for _ in [0] * h]",
+			"\t+ [list(\"#\" * (w + 2))]",
+			")"
+		]
+	},
+	"union_find": {
+		"prefix": "union_find",
+		"body": [
+			"class UnionFind:",
+			"\tdef __init__(self, n):",
+			"\t\tself.n = n",
+			"\t\tself.parents = [-1] * n",
+			"",
+			"\tdef find(self, x):",
+			"\t\tif self.parents[x] < 0:",
+			"\t\t\treturn x",
+			"\t\telse:",
+			"\t\t\tself.parents[x] = self.find(self.parents[x])",
+			"\t\t\treturn self.parents[x]",
+			"",
+			"\tdef union(self, x, y):",
+			"\t\tx = self.find(x)",
+			"\t\ty = self.find(y)",
+			"",
+			"\t\tif x == y:",
+			"\t\t\treturn",
+			"\t\tif self.parents[x] > self.parents[y]:",
+			"\t\t\tx, y = y, x",
+			"",
+			"\t\tself.parents[x] += self.parents[y]",
+			"\t\tself.parents[y] = x",
+			"",
+			"\tdef size(self, x):",
+			"\t\treturn -self.parents[self.find(x)]",
+			""
+		]
+	},
+	"seg_tree": {
+		"prefix": "seg_tree",
+		"body": [
+			"class SegTree:",
+			"\tdef __init__(self, init_val, segfunc, ide_ele):",
+			"\t\tn = len(init_val)",
+			"\t\tself.segfunc = segfunc",
+			"\t\tself.ide_ele = ide_ele",
+			"\t\tself.num = 1 << (n - 1).bit_length()",
+			"\t\tself.tree = [ide_ele] * 2 * self.num",
+			"\t\tfor i in range(n):",
+			"\t\t\tself.tree[self.num + i] = init_val[i]",
+			"\t\tfor i in range(self.num - 1, 0, -1):",
+			"\t\t\tself.tree[i] = self.segfunc(self.tree[2 * i], self.tree[2 * i + 1])",
+			"",
+			"\tdef update(self, k, x):",
+			"\t\tk += self.num",
+			"\t\tself.tree[k] = x",
+			"\t\twhile k > 1:",
+			"\t\t\tself.tree[k >> 1] = self.segfunc(self.tree[k], self.tree[k ^ 1])",
+			"\t\t\tk >>= 1",
+			"",
+			"\tdef query(self, left, right):",
+			"\t\tres = self.ide_ele",
+			"",
+			"\t\tleft += self.num",
+			"\t\tright += self.num",
+			"\t\twhile left < right:",
+			"\t\t\tif left & 1:",
+			"\t\t\t\tres = self.segfunc(res, self.tree[left])",
+			"\t\t\t\tleft += 1",
+			"\t\t\tif right & 1:",
+			"\t\t\t\tres = self.segfunc(res, self.tree[right - 1])",
+			"\t\t\tleft >>= 1",
+			"\t\t\tright >>= 1",
+			"\t\treturn res",
+			"",
+			"",
+			"def segfunc(x, y):",
+			"\treturn x ^ y"
+		]
+	},
+	"10 ** 9 + 7": {
+		"prefix": "MOD",
+		"body": "MOD = 10**9 + 7",
+		"description": "10**9 + 7"
+	},
+	"998244353": {
+		"prefix": "MOD",
+		"body": "MOD = 998244353",
+		"description": "998244353"
+	},
+	"eratosthenes": {
+		"prefix": "eratosthenes",
+		"body": [
+			"def eratosthenes(n):",
+			"\tsieve = [True] * (n + 1)",
+			"\tsieve[0] = False",
+			"\tsieve[1] = False",
+			"\tfor i in range(2, n + 1):",
+			"\t\tif i * i > n:",
+			"\t\t\tbreak",
+			"\t\tif sieve[i]:",
+			"\t\t\tfor j in range(i * i, n + 1, i):",
+			"\t\t\t\tsieve[j] = False",
+			"\treturn [p for p, f in enumerate(sieve) if f]"
+		],
+		"description": "eratosthenes"
+	},
+	"bit_exhaustive_seach": {
+		"prefix": "bit_exhaustive_seach",
+		"body": [
+			"def bit_exhaustive_seach(product_list):",
+			"\tn = len(product_list)",
+			"\tres = []",
+			"\tfor i in range(1 << n):",
+			"\t\ttmp = []",
+			"\t\tfor j in range(n):",
+			"\t\t\tif i >> j & 1:",
+			"\t\t\t\ttmp.append(product_list[j])",
+			"\t\tres.append(tmp)",
+			"\treturn res"
+		],
+		"description": "bit_exhaustive_seach"
+	}
+}
