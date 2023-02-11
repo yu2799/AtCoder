@@ -13,20 +13,20 @@ def bfs(graph, n, start):
                 continue
             dist[i] = dist[cur] + w
             next_visit.append(i)
-
-    return dist
+    return [0 if i % 2 == 0 else 1 for i in dist]
 
 
 def main():
     input = stdin.readline
     n = int(input())
-    g = [[] for _ in [0] * n]
-    for _ in [0] * (n - 1):
+    g = [[] for _ in range(n)]
+    for _ in range(n - 1):
         u, v, w = map(int, input().split())
-        g[u - 1].append((v - 1, w))
-        g[v - 1].append((u - 1, w))
-    res = [i % 2 for i in bfs(g, n, 0)]
-    print(*res, sep="\n")
+        u -= 1
+        v -= 1
+        g[u].append((v, w))
+        g[v].append((u, w))
+    print(*bfs(g, n, 0), sep="\n")
 
 
 if __name__ == "__main__":
