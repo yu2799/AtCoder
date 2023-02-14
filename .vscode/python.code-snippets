@@ -14,6 +14,11 @@
 		"body": "print(*res, sep=\"\\n\")",
 		"description": "print"
 	},
+	"print(res)": {
+		"prefix": "print(res)",
+		"body": "print(res)",
+		"description": "print"
+	},
 	"n = int(input())": {
 		"prefix": "n = int(input())",
 		"body": "n = int(input())",
