@@ -4,7 +4,7 @@ from sys import stdin
 def main():
     input = stdin.readline
     r = int(input())
-    print(3 * r**2)
+    print(3 * r * r)
 
 
 if __name__ == "__main__":

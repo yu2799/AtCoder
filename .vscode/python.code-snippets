@@ -19,28 +19,24 @@
 		"body": "print(res)",
 		"description": "print"
 	},
-	"n = int(input())": {
-		"prefix": "n = int(input())",
-		"body": "n = int(input())",
-		"description": "n = int(input())"
+	"int(input())": {
+		"prefix": "int(input())",
+		"body": "int(input())",
+		"description": "整数入力"
 	},
 	"graph": {
 		"prefix": "graph",
-		"body": "graph = [[] for _ in range($1)]",
+		"body": "graph = [[] for _ in range($1)]\n",
 		"description": "graph"
 	},
-	"s = input()[:-1]": {
-		"prefix": "s = input()[:-1]",
-		"body": [
-			"s = input()[:-1]"
-		],
+	"input()[:-1]": {
+		"prefix": "input()[:-1]",
+		"body": "input()[:-1]",
 		"description": "文字列入力"
 	},
 	"INF = float(\"inf\")": {
 		"prefix": "INF = float(\"inf\")",
-		"body": [
-			"INF = float(\"inf\")"
-		],
+		"body": "INF = float(\"inf\")\n",
 		"description": "最大値"
 	},
 	"lcm(x, y)": {
@@ -57,16 +53,7 @@
 	},
 	"list": {
 		"prefix": "list",
-		"body": [
-			"list(map(int, input().split()))"
-		]
-	},
-	"int(input())": {
-		"prefix": "int(input())",
-		"body": [
-			"int(input())"
-		],
-		"description": "int(input())"
+		"body": "list(map(int, input().split()))\n"
 	},
 	"int(i) for i in input().split()": {
 		"prefix": "int(i)",

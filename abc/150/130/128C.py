@@ -4,20 +4,18 @@ from sys import stdin
 def main():
     input = stdin.readline
     n, m = map(int, input().split())
-    s = []
-    for _ in [0] * m:
-        _, *tmp = map(int, input().split())
-        s.append(tmp)
+    s = [None] * m
+    for i in range(m):
+        _, *s[i] = map(int, input().split())
     p = list(map(int, input().split()))
     res = 0
     for i in range(2**n):
-        buf = list(reversed(bin(i)[2:].zfill(n)))
         for idx, j in enumerate(s):
-            tmp = 0
+            cnt = 0
             for k in j:
-                if buf[k - 1] == "1":
-                    tmp += 1
-            if p[idx] != tmp % 2:
+                if i >> (k - 1) & 1:
+                    cnt += 1
+            if cnt % 2 != p[idx]:
                 break
         else:
             res += 1
