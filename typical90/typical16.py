@@ -1,4 +1,3 @@
-# used pypy3
 from sys import stdin
 
 
@@ -6,19 +5,20 @@ def main():
     input = stdin.readline
     n = int(input())
     a, b, c = sorted(map(int, input().split()))
-    res = 9999
-    for i in range(res+1):
-        tmp = i * c
-        for j in range(res-i+1):
-            m = n - tmp - j*b
-            if m < 0:
-                break
-            if m % a == 0:
-                k = m // a
-                if i + j + k < res:
-                    res = i + j + k
+    res = 10000
+    for i in range(9999, -1, -1):
+        tmp_c = i * c
+        if tmp_c > n:
+            continue
+        for j in range(9999 - i, -1, -1):
+            tmp_b = b * j + tmp_c
+            if tmp_b > n:
+                continue
+            if (n - tmp_b) % a == 0:
+                k = (n - tmp_b) // a
+                res = min(res, i + j + k)
     print(res)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
