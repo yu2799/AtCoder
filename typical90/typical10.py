@@ -1,24 +1,30 @@
 from itertools import accumulate
+from sys import stdin
 
-n = int(input())
-s1, s2 = [0] * (n + 1), [0] * (n + 1)
-for i in range(1, n + 1):
-    c, p = map(int, input().split())
-    if c == 1:
-        s1[i] = p
-    else:
-        s2[i] = p
 
-    # 累積和計算
-    # if c == 1:
-    #     s1[i] = s1[i-1] + p
-    #     s2[i] = s2[i-1]
-    # else:
-    #     s2[i] = s2[i-1] + p
-    #     s1[i] = s1[i-1]
-s1, s2 = list(accumulate(s1)), list(accumulate(s2))
+def main():
+    input = stdin.readline
+    n = int(input())
+    a = []
+    b = []
+    res = []
+    for _ in range(n):
+        c, p = map(int, input().split())
+        if c == 1:
+            a.append(p)
+            b.append(0)
+        else:
+            a.append(0)
+            b.append(p)
+    a_accm = list(accumulate(a, initial=0))
+    b_accm = list(accumulate(b, initial=0))
+    q = int(input())
+    for _ in range(q):
+        l, r = map(int, input().split())
+        res.append((a_accm[r] - a_accm[l - 1], b_accm[r] - b_accm[l - 1]))
+    for i in res:
+        print(*i)
 
-q = int(input())
-for _ in range(q):
-    l, r = map(int, input().split())
-    print(s1[r]-s1[l-1], s2[r]-s2[l-1])
+
+if __name__ == "__main__":
+    main()

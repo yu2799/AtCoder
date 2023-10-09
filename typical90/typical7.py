@@ -1,24 +1,24 @@
+from bisect import bisect_right
 from sys import stdin
-from bisect import bisect
 
 
 def main():
     input = stdin.readline
     n = int(input())
-    a = [-10**10] + sorted(set(map(int, input().split()))) + [10**10]
+    a = list(sorted(map(int, input().split())))
     q = int(input())
     res = []
-    for _ in [0] * q:
+    for _ in range(q):
         b = int(input())
-        idx = bisect(a, b)
-
-        if abs(a[idx] - b) > abs(a[idx-1] - b):
-            res.append(abs(b - a[idx-1]))
+        idx = bisect_right(a, b)
+        if idx == 0:
+            res.append(abs(a[idx] - b))
+        elif idx == n:
+            res.append(abs(a[idx - 1] - b))
         else:
-            res.append(abs(b - a[idx]))
-
+            res.append(min(abs(a[idx] - b), abs(a[idx - 1] - b)))
     print(*res, sep="\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

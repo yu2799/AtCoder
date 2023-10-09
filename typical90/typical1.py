@@ -1,37 +1,34 @@
 from sys import stdin
 
 
-def is_ok(m, a, k):
+def is_ok(a, num, k):
     cnt = 0
     tmp = 0
-
+    prev = 0
     for i in a:
-        tmp += i
-        if tmp >= m:
+        tmp += i - prev
+        if num <= tmp:
             cnt += 1
             tmp = 0
-        print(tmp)
-    print(cnt)
-    return cnt >= k + 1
+        prev = i
+    return cnt < k + 1
 
 
 def main():
     input = stdin.readline
-    n, l = map(int, input().split())
+    _, length = map(int, input().split())
     k = int(input())
-    a = [0] + [int(i) for i in input().split()] + [l]
-    left = 0
-    right = l // (k + 1) + 1   # k+1個に分割する = 全体の長さを最大化するには l // k 以下である必要がある
-    while right - left > 1:
-        m = (left + right) // 2
-        # print(left, right, m)
-        if is_ok(m, a, k):
-            left = m
+    a = list(map(int, input().split())) + [length]
+    ng = 0
+    ok = a[-1]
+    while abs(ok - ng) > 1:
+        mid = (ok + ng) // 2
+        if is_ok(a, mid, k):
+            ok = mid
         else:
-            right = m
+            ng = mid
+    print(ng)
 
-    print(left)
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

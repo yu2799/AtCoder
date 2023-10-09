@@ -1,27 +1,28 @@
-from sys import stdin
 from collections import deque
+from sys import stdin
 
 
-def bfs(graph, n):
+def bfs(graph, n, start):
     dist = [-1] * n
-    dist[0] = 0
-    next_visit = deque([0])
+    dist[start] = 0
+    next_visit = deque([start])
     while next_visit:
         cur = next_visit.popleft()
         for i in graph[cur]:
-            if dist[i] != -1:
+            if dist[i] > -1:
                 continue
             dist[i] = dist[cur] + 1
             next_visit.append(i)
 
-    point = dist.index(max(dist))
+    s = dist.index(max(dist))
+
     dist = [-1] * n
-    dist[point] = 0
-    next_visit = deque([point])
+    dist[s] = 0
+    next_visit = deque([s])
     while next_visit:
         cur = next_visit.popleft()
         for i in graph[cur]:
-            if dist[i] != -1:
+            if dist[i] > -1:
                 continue
             dist[i] = dist[cur] + 1
             next_visit.append(i)
@@ -32,13 +33,13 @@ def bfs(graph, n):
 def main():
     input = stdin.readline
     n = int(input())
-    g = [[] for _ in [0] * n]
-    for _ in [0] * (n-1):
-        a, b = [int(i) - 1 for i in input().split()]
-        g[a].append(b)
-        g[b].append(a)
-    print(bfs(g, n))
+    graph = [[] for _ in range(n)]
+    for _ in range(n - 1):
+        a, b = map(lambda x: int(x) - 1, input().split())
+        graph[a].append(b)
+        graph[b].append(a)
+    print(bfs(graph, n, 0))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
