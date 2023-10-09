@@ -1,11 +1,14 @@
-n = int(input())
-s = set()
-res = []
-for i in range(n):
-    buf = input()
-    if buf not in s:
-        s.add(buf)
-        res.append(i+1)
-print(*res, sep="\n")
-# 毎回出力よりこっちのほうが高速っぽい
-# *はlistの[]を取って出力してくれる
+from sys import stdin
+
+
+def main():
+    input = stdin.readline
+    _, k = map(int, input().split())
+    a = list(map(int, input().split()))
+    b = list(map(int, input().split()))
+    tmp = sum(abs(i - j) for i, j in zip(a, b))
+    print("Yes" if k >= tmp and k % 2 == tmp % 2 else "No")
+
+
+if __name__ == "__main__":
+    main()

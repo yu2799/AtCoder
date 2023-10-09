@@ -4,11 +4,8 @@ from sys import stdin
 def main():
     input = stdin.readline
     a, b, c = map(int, input().split())
-    if a < c ** b:
-        print("Yes")
-    else:
-        print("No")
+    print("Yes" if a < pow(c, b) else "No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
