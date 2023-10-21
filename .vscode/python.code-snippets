@@ -340,4 +340,30 @@
     ],
     "description": "bit_exhaustive_seach"
   }
+  "dijkstra": {
+    "prefix": "dijkstra",
+    "body": [
+      "from heapq import heappop, heappush",
+      "",
+      "",
+      "def dijkstra(graph, n, start):",
+      "\tres = [float(\"inf\")] * n",
+      "\tres[start] = 0",
+      "\thq = []",
+      "\theappush(hq, [0, start])",
+      "\tvisited = set()",
+      "",
+      "\twhile hq:",
+      "\t\tcur_cost, cur = heappop(hq)",
+      "\t\tif cur in visited:",
+      "\t\t\tcontinue",
+      "",
+      "\t\tfor next, cost in graph[cur]:",
+      "\t\t\ttmp = cur_cost + cost",
+      "\t\t\tif tmp < res[next]:",
+      "\t\t\t\tres[next] = tmp",
+      "\t\t\t\theappush(hq, [tmp, next])",
+      "\treturn res"
+    ]
+  }
 }
