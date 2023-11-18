@@ -339,7 +339,7 @@
       "\treturn res"
     ],
     "description": "bit_exhaustive_seach"
-  }
+  },
   "dijkstra": {
     "prefix": "dijkstra",
     "body": [
@@ -364,6 +364,27 @@
       "\t\t\t\tres[next] = tmp",
       "\t\t\t\theappush(hq, [tmp, next])",
       "\treturn res"
+    ]
+  },
+  "topological_sort": {
+    "prefix": "topological_sort",
+    "body": [
+      "def topological_sort(graph, deg):",
+      "\tres = []",
+      "\tnext_visit = deque()",
+      "",
+      "\tfor idx, i in enumerate(deg):",
+      "\t\tnext_visit.append(idx)",
+      "",
+      "\twhile next_visit:",
+      "\t\tcur = next_visit.popleft()",
+      "\t\tres.append(cur + 1)",
+      "\t\tfor i in graph[cur]:",
+      "\t\t\tdeg[i] -= 1",
+      "\t\t\tif deg[i] == 0:",
+      "\t\t\t\tnext_visit.append(i)",
+      "\treturn res",
+      ""
     ]
   }
 }
