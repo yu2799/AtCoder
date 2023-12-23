@@ -3,7 +3,7 @@ from sys import stdin
 
 def main():
     input = stdin.readline
-    a = [int(i) for i in input().split()]
+    a = list(map(int, input().split()))
     print(a[a[a[0]]])
 
 

@@ -1,22 +1,21 @@
+from collections import defaultdict
 from sys import stdin
 
 
 def main():
     input = stdin.readline
     n, m = map(int, input().split())
-    a = [int(i) for i in input().split()]
-    b = [int(i) for i in input().split()]
-    flag = [True] * n
+    a = list(map(int, input().split()))
+    b = list(map(int, input().split()))
+    d = defaultdict(int)
+    for i in a:
+        d[i] += 1
     for i in b:
-        for j in range(len(a)):
-            if i == a[j] and flag[j]:
-                flag[j] = False
-                break
-        else:
+        d[i] -= 1
+        if d[i] < 0:
             print("No")
-            break
-    else:
-        print("Yes")
+            return
+    print("Yes")
 
 
 if __name__ == "__main__":

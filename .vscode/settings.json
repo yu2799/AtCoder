@@ -21,7 +21,7 @@
     "[python]": {
         // 保存時にimport文のソートなどを行う
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true
+            "source.organizeImports": "explicit"
         },
         // 保存時にフォーマットを行う
         "editor.formatOnSave": true,
